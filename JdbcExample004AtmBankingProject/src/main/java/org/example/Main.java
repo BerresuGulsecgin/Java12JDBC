@@ -20,6 +20,5 @@ public class Main {
        accountService.transfer(1000,"1905910924", user);
 
 
-
     }
 }
