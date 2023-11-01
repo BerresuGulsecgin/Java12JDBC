@@ -47,5 +47,14 @@ public class User {
     @ElementCollection
     private Map<EAddressType,Address> addresses;
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", information=" + information +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", eGender=" + eGender +
+                '}';
+    }
 }

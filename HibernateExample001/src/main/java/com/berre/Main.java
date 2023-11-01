@@ -10,9 +10,20 @@ public class Main {
 
         //save user metodu yaz
         UserService userService=new UserService();
-        userService.save();
+        //userService.save();
         PostService postService=new PostService();
-        postService.createPost();
+        //postService.createPost();
+
+        //userService.findAllHQL().forEach(user -> System.out.println(user));
+        //userService.findAll().forEach(System.out::println);
+        //userService.FindAllInformationName().forEach(System.out::println);
+
+        //userService.FindAllInformation().forEach(inf -> System.out.println(inf));
+
+        //System.out.println(userService.FindById(2L));
+        //System.out.println(userService.findByUsername("memo"));
+        System.out.println(userService.ilebaslayan("m"));
+
 
 
 
