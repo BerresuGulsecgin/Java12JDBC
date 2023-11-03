@@ -9,6 +9,9 @@ public class Main {
 
         //HibernateUtility.getSessionFactory().openSession();
         Menu menu=new Menu();
-        menu.menu();
+        while (true){
+            menu.menu();
+        }
+
     }
 }

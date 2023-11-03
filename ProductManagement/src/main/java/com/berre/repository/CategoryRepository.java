@@ -7,4 +7,6 @@ public class CategoryRepository extends MyRepositoryFactory<Category, Long> {
     public CategoryRepository() {
         super(Category.class);
     }
+
+
 }

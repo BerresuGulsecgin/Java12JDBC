@@ -27,6 +27,6 @@ public class Product {
     private Category category;
     @OneToMany(mappedBy = "product")
     private List<ProductDetail> productDetails;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Customer> customers;
 }

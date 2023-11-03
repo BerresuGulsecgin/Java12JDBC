@@ -5,6 +5,8 @@ import com.berre.entity.Information;
 import com.berre.service.CustomerService;
 import com.berre.util.BAUtils;
 
+import java.util.Optional;
+
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -34,5 +36,16 @@ public class CustomerController {
                 .build();
 
         customerService.register(customer);
+    }
+
+    public Customer login() {
+        String identity=BAUtils.readString("tcnizi giriniz");
+        String password= BAUtils.readString("şifrenizi giriniz");
+
+        return customerService.findCustomerByIdentity(identity,password).get();
+
+
+
+
     }
 }
