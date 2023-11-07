@@ -29,4 +29,6 @@ public class Product {
     private List<ProductDetail> productDetails;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Customer> customers;
+
+
 }

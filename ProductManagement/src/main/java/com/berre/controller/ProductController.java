@@ -3,10 +3,12 @@ package com.berre.controller;
 import com.berre.entity.Category;
 import com.berre.entity.Customer;
 import com.berre.entity.Product;
+import com.berre.entity.ProductDetail;
 import com.berre.service.CategoryService;
 import com.berre.service.ProductService;
 import com.berre.util.BAUtils;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ProductController {
@@ -46,4 +48,14 @@ public class ProductController {
         optionalProduct.get().setStock(optionalProduct.get().getStock()-amonut);
         productService.update(optionalProduct.get());
     }
+
+    public void findAll() {
+        productService.findAll().forEach(p-> System.out.println(p.getId()+" "+ p.getName()+" "+p.getPrice()+" "+p.getStock()));
+    }
+
+
+    public void getProductsLessThanTen() {
+        productService.getProductsLessThanTen();
+    }
 }
+

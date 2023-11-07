@@ -3,6 +3,7 @@ package com.berre.app;
 import com.berre.controller.CategoryController;
 import com.berre.controller.CustomerController;
 import com.berre.controller.ProductController;
+import com.berre.controller.ProductDetailController;
 import com.berre.entity.Customer;
 import com.berre.util.BAUtils;
 
@@ -14,10 +15,13 @@ public class Menu {
     private final CategoryController categoryController;
     private final ProductController productController;
 
+    private final ProductDetailController productDetailController;
+
     public Menu() {
         this.customerController=new CustomerController();
         this.categoryController=new CategoryController();
         this.productController=new ProductController();
+        this.productDetailController=new ProductDetailController();
     }
 
     public void menu(){
@@ -60,6 +64,9 @@ public class Menu {
         HashMap<Integer, String> menuItems=new HashMap<>();
         System.out.println(customer.getIdentity());
         menuItems.put(1,"satın al");
+        menuItems.put(2,"ürüne yorum ve puan ver");
+        menuItems.put(3,"stoğu bitmek üzere olan ürünleri listele(10adet ve aşağısı)");
+        menuItems.put(4,"ürüne göre yorumları göster");
 
 
         int key = BAUtils.menu(menuItems);
@@ -69,7 +76,13 @@ public class Menu {
                 productController.buyProduct(customer);
                 break;
             case 2 :
-                //System.out.println("giriş yap");
+                productDetailController.makeCommentAndScore();
+                break;
+            case 3 :
+                productController.getProductsLessThanTen();
+                break;
+            case 4 :
+                productDetailController.showComment();
                 break;
 
         }
@@ -80,6 +93,7 @@ public class Menu {
 
         menuItems.put(1,"Product ekle");
         menuItems.put(2,"Category ekle");
+        menuItems.put(3,"Tüm productları listelesin ekle");
 
 
         int key = BAUtils.menu(menuItems);
@@ -90,6 +104,9 @@ public class Menu {
                 break;
             case 2 :
                 categoryController.save();
+                break;
+            case 3 :
+                productController.findAll();
                 break;
 
         }

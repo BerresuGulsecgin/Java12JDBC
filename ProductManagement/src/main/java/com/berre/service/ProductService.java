@@ -3,6 +3,7 @@ package com.berre.service;
 import com.berre.entity.Product;
 import com.berre.repository.ProductRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ProductService {
@@ -36,5 +37,17 @@ public class ProductService {
 
     public void update(Product product) {
         productRepository.update(product);
+    }
+
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
+
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
+    }
+
+    public void getProductsLessThanTen() {
+        productRepository.listProductWhereStockLessThenTen().forEach(x-> System.out.println(x.getStock()+" "+x.getName()));
     }
 }

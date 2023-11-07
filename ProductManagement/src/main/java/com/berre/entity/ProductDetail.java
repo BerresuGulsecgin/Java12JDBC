@@ -18,6 +18,6 @@ public class ProductDetail {
     private Long id;
     private String comment;
     private double score;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
 }
