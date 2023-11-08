@@ -1,5 +1,6 @@
 package com.berre.entity;
 
+import com.berre.entity.enums.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +25,9 @@ public class Customer {
     private Information information;
     @ManyToMany(mappedBy = "customers")
     private List<Product> products;
+
+
+    @Enumerated(EnumType.STRING)
+    @Builder.Default
+    private AccountType accountType=AccountType.NORMAL;
 }

@@ -2,10 +2,15 @@ package com.berre.controller;
 
 import com.berre.entity.Customer;
 import com.berre.entity.Information;
+import com.berre.entity.enums.AccountType;
 import com.berre.service.CustomerService;
 import com.berre.util.BAUtils;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CustomerController {
 
@@ -33,6 +38,7 @@ public class CustomerController {
                 .identity(identityNo)
                 .password(password)
                 .information(information)
+                .accountType(AccountType.NORMAL)
                 .build();
 
         customerService.register(customer);
@@ -44,8 +50,18 @@ public class CustomerController {
 
         return customerService.findCustomerByIdentity(identity,password).get();
 
+    }
 
 
 
+    public void upgradeAccount(Customer customer) {
+
+
+        HashMap<Integer, String> menuItems=new HashMap<>(Arrays.stream(AccountType.values()).collect(Collectors.toMap(Enum::ordinal, Enum::name)));
+        int index=BAUtils.menu(menuItems);
+        AccountType accountType=AccountType.values()[index];
+        customer.setAccountType(accountType);
+
+        customerService.upgradeAccount(customer);
     }
 }

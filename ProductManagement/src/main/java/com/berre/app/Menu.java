@@ -67,6 +67,7 @@ public class Menu {
         menuItems.put(2,"ürüne yorum ve puan ver");
         menuItems.put(3,"stoğu bitmek üzere olan ürünleri listele(10adet ve aşağısı)");
         menuItems.put(4,"ürüne göre yorumları göster");
+        menuItems.put(5,"Hesabımı yükselt");
 
 
         int key = BAUtils.menu(menuItems);
@@ -83,6 +84,9 @@ public class Menu {
                 break;
             case 4 :
                 productDetailController.showComment();
+                break;
+            case 5 :
+                customerController.upgradeAccount(customer);
                 break;
 
         }

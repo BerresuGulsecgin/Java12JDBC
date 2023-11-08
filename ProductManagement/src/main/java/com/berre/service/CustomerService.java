@@ -1,6 +1,7 @@
 package com.berre.service;
 
 import com.berre.entity.Customer;
+import com.berre.entity.enums.AccountType;
 import com.berre.repository.CustomerRepository;
 
 import javax.persistence.NoResultException;
@@ -35,5 +36,11 @@ public class CustomerService {
         return Optional.empty();
 
 
+    }
+
+
+    public void upgradeAccount(Customer customer) {
+
+        customerRepository.update(customer);
     }
 }
